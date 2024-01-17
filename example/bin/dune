@@ -2,5 +2,5 @@
  (name main)
  (public_name dune-rpc-eio-example)
  (package dune-rpc-eio-example)
- (flags :standard -w +a-4-40-41-42-44-45-66 -warn-error +a)
+ (flags :standard -w +a-4-40-41-42-44-45-48-66 -warn-error +a)
  (libraries command-unix-for-opam dune_rpc_eio_example))
