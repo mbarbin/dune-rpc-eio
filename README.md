@@ -1,7 +1,6 @@
 # dune-rpc-eio
 
 [![CI Status](https://github.com/mbarbin/dune-rpc-eio/workflows/ci/badge.svg)](https://github.com/mbarbin/dune-rpc-eio/actions/workflows/ci.yml)
-[![Deploy odoc Status](https://github.com/mbarbin/dune-rpc-eio/workflows/deploy-odoc/badge.svg)](https://github.com/mbarbin/dune-rpc-eio/actions/workflows/deploy-odoc.yml)
 
 Communicate with `dune` using
 [dune-rpc](https://opam.ocaml.org/packages/dune-rpc/) and
