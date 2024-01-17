@@ -1,4 +1,4 @@
-(lang dune 3.11)
+(lang dune 3.12)
 
 (name dune-rpc-eio)
 
@@ -22,12 +22,10 @@
  (depends
   (ocaml
    (>= 5.1))
-  (dune
-   (>= 3.11))
   (csexp
    (>= 1.5.2))
   (dune-rpc
-   (>= 3.11))
+   (>= 3.12))
   (eio
    (>= 0.13))))
 
@@ -38,8 +36,6 @@
  (depends
   (ocaml
    (>= 5.1))
-  (dune
-   (>= 3.11))
   (base
    (and
     (>= v0.16)
@@ -51,7 +47,7 @@
     (>= v0.16)
     (< v0.17)))
   (dune-rpc
-   (>= 3.11))
+   (>= 3.12))
   (dune-rpc-eio
    (= :version))
   (eio

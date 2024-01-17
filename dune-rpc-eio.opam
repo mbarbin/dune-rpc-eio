@@ -9,10 +9,10 @@ homepage: "https://github.com/mbarbin/dune-rpc-eio"
 doc: "https://mbarbin.github.io/dune-rpc-eio/"
 bug-reports: "https://github.com/mbarbin/dune-rpc-eio/issues"
 depends: [
+  "dune" {>= "3.12"}
   "ocaml" {>= "5.1"}
-  "dune" {>= "3.11" & >= "3.11"}
   "csexp" {>= "1.5.2"}
-  "dune-rpc" {>= "3.11"}
+  "dune-rpc" {>= "3.12"}
   "eio" {>= "0.13"}
   "odoc" {with-doc}
 ]

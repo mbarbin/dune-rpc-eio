@@ -9,12 +9,12 @@ homepage: "https://github.com/mbarbin/dune-rpc-eio"
 doc: "https://mbarbin.github.io/dune-rpc-eio/"
 bug-reports: "https://github.com/mbarbin/dune-rpc-eio/issues"
 depends: [
+  "dune" {>= "3.12"}
   "ocaml" {>= "5.1"}
-  "dune" {>= "3.11" & >= "3.11"}
   "base" {>= "v0.16" & < "v0.17"}
   "command-unix-for-opam" {>= "0.0.1"}
   "core" {>= "v0.16" & < "v0.17"}
-  "dune-rpc" {>= "3.11"}
+  "dune-rpc" {>= "3.12"}
   "dune-rpc-eio" {= version}
   "eio" {>= "0.13"}
   "eio_main" {>= "0.13"}
