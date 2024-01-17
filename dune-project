@@ -18,7 +18,6 @@
 (package
  (name dune-rpc-eio)
  (synopsis "Communicate with dune using rpc and Eio")
- (description "Communicate with dune using rpc and Eio")
  (depends
   (ocaml
    (>= 5.1))
@@ -32,7 +31,6 @@
 (package
  (name dune-rpc-eio-example)
  (synopsis "An example of a client built with dune-rpc-eio")
- (description "An example of a client built with dune-rpc-eio")
  (depends
   (ocaml
    (>= 5.1))
