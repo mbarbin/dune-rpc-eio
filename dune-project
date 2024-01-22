@@ -1,4 +1,4 @@
-(lang dune 3.12)
+(lang dune 3.13)
 
 (name dune-rpc-eio)
 
@@ -24,9 +24,9 @@
   (csexp
    (>= 1.5.2))
   (dune-rpc
-   (>= 3.12))
+   (>= 3.13))
   (eio
-   (>= 0.13))))
+   (>= 0.14))))
 
 (package
  (name dune-rpc-eio-example)
@@ -45,13 +45,13 @@
     (>= v0.16)
     (< v0.17)))
   (dune-rpc
-   (>= 3.12))
+   (>= 3.13))
   (dune-rpc-eio
    (= :version))
   (eio
-   (>= 0.13))
+   (>= 0.14))
   (eio_main
-   (>= 0.13))
+   (>= 0.14))
   (expect_test_helpers_core
    (and
     :with-test

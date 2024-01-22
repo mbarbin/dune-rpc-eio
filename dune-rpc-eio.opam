@@ -8,11 +8,11 @@ homepage: "https://github.com/mbarbin/dune-rpc-eio"
 doc: "https://mbarbin.github.io/dune-rpc-eio/"
 bug-reports: "https://github.com/mbarbin/dune-rpc-eio/issues"
 depends: [
-  "dune" {>= "3.12"}
+  "dune" {>= "3.13"}
   "ocaml" {>= "5.1"}
   "csexp" {>= "1.5.2"}
-  "dune-rpc" {>= "3.12"}
-  "eio" {>= "0.13"}
+  "dune-rpc" {>= "3.13"}
+  "eio" {>= "0.14"}
   "odoc" {with-doc}
 ]
 build: [
