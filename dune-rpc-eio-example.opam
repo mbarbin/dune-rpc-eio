@@ -11,7 +11,7 @@ depends: [
   "dune" {>= "3.13"}
   "ocaml" {>= "5.1"}
   "base" {>= "v0.16" & < "v0.17"}
-  "command-unix-for-opam" {>= "0.0.1"}
+  "command-unix-for-opam" {>= "0.0.2"}
   "core" {>= "v0.16" & < "v0.17"}
   "dune-rpc" {>= "3.13"}
   "dune-rpc-eio" {= version}
