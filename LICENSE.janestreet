@@ -1,3 +1,7 @@
+This project took inspiration and reused code from the
+[dune-rpc-lwt](https://opam.ocaml.org/packages/dune-rpc-lwt/) package that is
+part of the official `dune` distribution, which has the following license:
+
 The MIT License
 
 Copyright (c) 2016 Jane Street Group, LLC <opensource@janestreet.com>
