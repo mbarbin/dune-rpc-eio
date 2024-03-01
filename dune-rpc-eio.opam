@@ -12,7 +12,7 @@ depends: [
   "ocaml" {>= "5.1"}
   "csexp" {>= "1.5.2"}
   "dune-rpc" {>= "3.14"}
-  "eio" {>= "0.14"}
+  "eio" {>= "0.15"}
   "odoc" {with-doc}
 ]
 build: [
