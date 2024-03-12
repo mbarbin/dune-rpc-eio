@@ -26,7 +26,7 @@
   (dune-rpc
    (>= 3.14))
   (eio
-   (>= 0.15))))
+   (>= 1.0))))
 
 (package
  (name dune-rpc-eio-example)
@@ -49,9 +49,9 @@
   (dune-rpc-eio
    (= :version))
   (eio
-   (>= 0.15))
+   (>= 1.0))
   (eio_main
-   (>= 0.15))
+   (>= 1.0))
   (expect-test-helpers
    (and
     :with-test
