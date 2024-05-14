@@ -9,7 +9,7 @@ doc: "https://mbarbin.github.io/dune-rpc-eio/"
 bug-reports: "https://github.com/mbarbin/dune-rpc-eio/issues"
 depends: [
   "dune" {>= "3.16"}
-  "ocaml" {>= "5.1"}
+  "ocaml" {>= "5.2"}
   "csexp" {>= "1.5.2"}
   "dune-rpc" {>= "3.16"}
   "eio" {>= "1.0"}

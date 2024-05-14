@@ -20,7 +20,7 @@
  (synopsis "Communicate with dune using rpc and Eio")
  (depends
   (ocaml
-   (>= 5.1))
+   (>= 5.2))
   (csexp
    (>= 1.5.2))
   (dune-rpc
@@ -33,7 +33,7 @@
  (synopsis "An example of a client built with dune-rpc-eio")
  (depends
   (ocaml
-   (>= 5.1))
+   (>= 5.2))
   (base
    (and
     (>= v0.17)
