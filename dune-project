@@ -1,4 +1,4 @@
-(lang dune 3.15)
+(lang dune 3.16)
 
 (name dune-rpc-eio)
 
@@ -24,7 +24,7 @@
   (csexp
    (>= 1.5.2))
   (dune-rpc
-   (>= 3.15))
+   (>= 3.16))
   (eio
    (>= 1.0))))
 
@@ -45,7 +45,7 @@
     (>= v0.17)
     (< v0.18)))
   (dune-rpc
-   (>= 3.15))
+   (>= 3.16))
   (dune-rpc-eio
    (= :version))
   (eio
