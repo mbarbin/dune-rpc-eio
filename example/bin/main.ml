@@ -1,1 +1,6 @@
-let () = Command_unix_for_opam.run Dune_rpc_eio_example.main
+let () =
+  Commandlang_to_cmdliner.run
+    Dune_rpc_eio_example.main
+    ~name:"main"
+    ~version:"%%VERSION%%"
+;;

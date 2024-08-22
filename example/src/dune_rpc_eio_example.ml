@@ -1,5 +1,5 @@
 let stop_cmd =
-  Command.basic
+  Command.make
     ~summary:"connect to a dune-rpc instance and instruct it to stop"
     ~readme:(fun () ->
       {|
@@ -7,76 +7,77 @@ This commands will connect to the dune server, perform several RPC calls
 to it before instructing the server (over RPC) to shutdown.
 |})
     (let%map_open.Command build_dir =
-       flag
-         "--build-dir"
-         (optional_with_default "_build" string)
+       Arg.named_with_default
+         [ "build-dir" ]
+         Param.string
+         ~default:"_build"
+         ~docv:"PATH"
          ~doc:
-           "PATH path to the build directory of the running `dune -w` instance. Default \
+           "path to the build directory of the running `dune -w` instance. Default \
             ./_build"
      in
-     fun () ->
-       Eio_main.run
-       @@ fun env ->
-       Eio.Switch.run
-       @@ fun sw ->
-       Dune_rpc_eio.V1.initialize ~env ~sw;
-       let init =
-         Dune_rpc.V1.Initialize.create
-           ~id:(Dune_rpc.V1.Id.make (Csexp.Atom "example_rpc_client"))
-       in
-       let where = Dune_rpc_eio.V1.Where.default ~build_dir () in
-       Eio.traceln "Connecting to RPC server...";
-       let chan = Dune_rpc_eio.V1.connect_chan ~env ~sw where in
-       Dune_rpc_eio.V1.Client.connect chan init ~f:(fun client ->
-         Eio.traceln "Sending ping to server...";
-         let () =
-           let request =
-             Dune_rpc_eio.V1.Client.Versioned.prepare_request
-               client
-               Dune_rpc.V1.Request.ping
-             |> Eio.Promise.await_exn
-             |> Stdlib.Result.get_ok
-           in
-           Dune_rpc_eio.V1.Client.request client request ()
-           |> Eio.Promise.await_exn
-           |> Stdlib.Result.get_ok
-         in
-         Eio.traceln "Got response from server...";
-         Eio.traceln "Creating progress stream...";
-         let progress_stream =
-           Dune_rpc_eio.V1.Client.poll client Dune_rpc.V1.Sub.progress
-           |> Eio.Promise.await_exn
-           |> Stdlib.Result.get_ok
-         in
-         Eio.traceln "Waiting for next progress event...";
-         let progress_event =
-           Dune_rpc_eio.V1.Client.Stream.next progress_stream |> Eio.Promise.await_exn
-         in
-         let message =
-           match progress_event with
-           | None -> "(none)"
-           | Some Success -> "Success"
-           | Some Failed -> "Failed"
-           | Some Interrupted -> "Interrupted"
-           | Some (In_progress { complete; remaining; failed }) ->
-             Printf.sprintf
-               "In_progress { complete = %d;  remaining = %d;  failed = %d }"
-               complete
-               remaining
-               failed
-           | Some Waiting -> "Waiting"
-         in
-         Eio.traceln "Got progress_event: %s" message;
-         Eio.traceln "Shutting down RPC server...";
-         let shutdown_notification =
-           Dune_rpc_eio.V1.Client.Versioned.prepare_notification
+     Eio_main.run
+     @@ fun env ->
+     Eio.Switch.run
+     @@ fun sw ->
+     Dune_rpc_eio.V1.initialize ~env ~sw;
+     let init =
+       Dune_rpc.V1.Initialize.create
+         ~id:(Dune_rpc.V1.Id.make (Csexp.Atom "example_rpc_client"))
+     in
+     let where = Dune_rpc_eio.V1.Where.default ~build_dir () in
+     Eio.traceln "Connecting to RPC server...";
+     let chan = Dune_rpc_eio.V1.connect_chan ~env ~sw where in
+     Dune_rpc_eio.V1.Client.connect chan init ~f:(fun client ->
+       Eio.traceln "Sending ping to server...";
+       let () =
+         let request =
+           Dune_rpc_eio.V1.Client.Versioned.prepare_request
              client
-             Dune_rpc.V1.Notification.shutdown
+             Dune_rpc.V1.Request.ping
            |> Eio.Promise.await_exn
            |> Stdlib.Result.get_ok
          in
-         Dune_rpc_eio.V1.Client.notification client shutdown_notification ())
-       |> Eio.Promise.await_exn)
+         Dune_rpc_eio.V1.Client.request client request ()
+         |> Eio.Promise.await_exn
+         |> Stdlib.Result.get_ok
+       in
+       Eio.traceln "Got response from server...";
+       Eio.traceln "Creating progress stream...";
+       let progress_stream =
+         Dune_rpc_eio.V1.Client.poll client Dune_rpc.V1.Sub.progress
+         |> Eio.Promise.await_exn
+         |> Stdlib.Result.get_ok
+       in
+       Eio.traceln "Waiting for next progress event...";
+       let progress_event =
+         Dune_rpc_eio.V1.Client.Stream.next progress_stream |> Eio.Promise.await_exn
+       in
+       let message =
+         match progress_event with
+         | None -> "(none)"
+         | Some Success -> "Success"
+         | Some Failed -> "Failed"
+         | Some Interrupted -> "Interrupted"
+         | Some (In_progress { complete; remaining; failed }) ->
+           Printf.sprintf
+             "In_progress { complete = %d;  remaining = %d;  failed = %d }"
+             complete
+             remaining
+             failed
+         | Some Waiting -> "Waiting"
+       in
+       Eio.traceln "Got progress_event: %s" message;
+       Eio.traceln "Shutting down RPC server...";
+       let shutdown_notification =
+         Dune_rpc_eio.V1.Client.Versioned.prepare_notification
+           client
+           Dune_rpc.V1.Notification.shutdown
+         |> Eio.Promise.await_exn
+         |> Stdlib.Result.get_ok
+       in
+       Dune_rpc_eio.V1.Client.notification client shutdown_notification ())
+     |> Eio.Promise.await_exn)
 ;;
 
 let main =
