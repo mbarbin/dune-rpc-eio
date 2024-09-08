@@ -6,7 +6,8 @@ let stop_cmd =
 This commands will connect to the dune server, perform several RPC calls
 to it before instructing the server (over RPC) to shutdown.
 |})
-    (let%map_open.Command build_dir =
+    (let%map_open.Command () = Err_cli.set_config ()
+     and build_dir =
        Arg.named_with_default
          [ "build-dir" ]
          Param.string
@@ -49,25 +50,33 @@ to it before instructing the server (over RPC) to shutdown.
          |> Eio.Promise.await_exn
          |> Stdlib.Result.get_ok
        in
-       Eio.traceln "Waiting for next progress event...";
-       let progress_event =
-         Dune_rpc_eio.V1.Client.Stream.next progress_stream |> Eio.Promise.await_exn
-       in
-       let message =
+       Eio.traceln "Waiting for success event...";
+       let rec loop () =
+         let progress_event =
+           Dune_rpc_eio.V1.Client.Stream.next progress_stream |> Eio.Promise.await_exn
+         in
+         let message =
+           match progress_event with
+           | None -> "(none)"
+           | Some Success -> "Success"
+           | Some Failed -> "Failed"
+           | Some Interrupted -> "Interrupted"
+           | Some (In_progress { complete; remaining; failed }) ->
+             Printf.sprintf
+               "In_progress { complete = %d;  remaining = %d;  failed = %d }"
+               complete
+               remaining
+               failed
+           | Some Waiting -> "Waiting"
+         in
+         Err.info [ Pp.textf "Got progress_event: %s" message ];
          match progress_event with
-         | None -> "(none)"
-         | Some Success -> "Success"
-         | Some Failed -> "Failed"
-         | Some Interrupted -> "Interrupted"
-         | Some (In_progress { complete; remaining; failed }) ->
-           Printf.sprintf
-             "In_progress { complete = %d;  remaining = %d;  failed = %d }"
-             complete
-             remaining
-             failed
-         | Some Waiting -> "Waiting"
+         | Some Success -> ()
+         | Some (In_progress _) -> loop ()
+         | None | Some Failed | Some Interrupted | Some Waiting ->
+           Err.raise [ Pp.textf "Unexpected event: %s" message ]
        in
-       Eio.traceln "Got progress_event: %s" message;
+       loop ();
        Eio.traceln "Shutting down RPC server...";
        let shutdown_notification =
          Dune_rpc_eio.V1.Client.Versioned.prepare_notification
