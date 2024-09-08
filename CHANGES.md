@@ -1,16 +1,17 @@
-## 0.0.7 (unreleased)
+## 0.0.7 (2024-09-08)
 
 ### Added
 
+- Configure dev-setup dependencies
+
 ### Changed
 
-- Use `commandlang` for the CLI.
-
-### Deprecated
+- Use `cmdlang` for the CLI.
+- Use `expect_test_helpers_core`.
 
 ### Fixed
 
-### Removed
+- Improve example trace determinism. The example no longer show additional events under certain brittle conditions.
 
 ## 0.0.6 (2024-07-26)
 
