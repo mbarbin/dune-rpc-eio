@@ -3,4 +3,4 @@
  (public_name dune-rpc-eio-example)
  (package dune-rpc-eio-example)
  (flags :standard -w +a-4-40-41-42-44-45-48-66 -warn-error +a)
- (libraries commandlang-to-cmdliner dune_rpc_eio_example))
+ (libraries cmdlang-to-cmdliner dune_rpc_eio_example))

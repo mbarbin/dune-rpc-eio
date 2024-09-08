@@ -42,12 +42,12 @@
    (and
     (>= v0.17)
     (< v0.18)))
+  (cmdlang
+   (>= 0.0.4))
+  (cmdlang-to-cmdliner
+   (>= 0.0.4))
   (cmdliner
    (= 1.3.0))
-  (commandlang
-   (>= 0.0.1))
-  (commandlang-to-cmdliner
-   (>= 0.0.1))
   (dune-rpc
    (>= 3.16))
   (dune-rpc-eio
@@ -56,7 +56,11 @@
    (>= 1.0))
   (eio_main
    (>= 1.0))
-  (expect-test-helpers
+  (err
+   (>= 0.0.4))
+  (err-cli
+   (>= 0.0.4))
+  (expect_test_helpers_core
    (and
     :with-test
     (>= v0.17)
