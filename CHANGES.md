@@ -1,3 +1,17 @@
+## 0.0.8 (unreleased)
+
+### Added
+
+### Changed
+
+- Upgrade to `cmdlang.0.0.5`.
+
+### Deprecated
+
+### Fixed
+
+### Removed
+
 ## 0.0.7 (2024-09-08)
 
 ### Added
