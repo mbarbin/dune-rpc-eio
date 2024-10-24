@@ -15,7 +15,7 @@ depends: [
   "cmdlang" {>= "0.0.5"}
   "cmdlang-cmdliner-runner" {>= "0.0.5"}
   "cmdlang-to-cmdliner" {>= "0.0.5"}
-  "cmdliner" {= "1.3.0"}
+  "cmdliner" {>= "1.3.0"}
   "dune-rpc" {>= "3.16"}
   "dune-rpc-eio" {= version}
   "eio" {>= "1.0"}

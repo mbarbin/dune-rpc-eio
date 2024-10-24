@@ -49,7 +49,7 @@
   (cmdlang-to-cmdliner
    (>= 0.0.5))
   (cmdliner
-   (= 1.3.0))
+   (>= 1.3.0))
   (dune-rpc
    (>= 3.16))
   (dune-rpc-eio
