@@ -58,15 +58,13 @@
    (>= 1.0))
   (eio_main
    (>= 1.0))
-  (err
-   (>= 0.0.5))
-  (err-cli
-   (>= 0.0.5))
   (expect_test_helpers_core
    (and
     :with-test
     (>= v0.17)
     (< v0.18)))
+  (pp-log
+   (>= 0.0.1))
   (ppx_compare
    (and
     (>= v0.17)
