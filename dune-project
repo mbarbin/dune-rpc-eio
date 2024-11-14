@@ -43,11 +43,11 @@
     (>= v0.17)
     (< v0.18)))
   (cmdlang
-   (>= 0.0.5))
+   (>= 0.0.8))
   (cmdlang-cmdliner-runner
-   (>= 0.0.5))
+   (>= 0.0.8))
   (cmdlang-to-cmdliner
-   (>= 0.0.5))
+   (>= 0.0.8))
   (cmdliner
    (>= 1.3.0))
   (dune-rpc
@@ -64,7 +64,7 @@
     (>= v0.17)
     (< v0.18)))
   (pp-log
-   (>= 0.0.7))
+   (>= 0.0.8))
   (ppx_compare
    (and
     (>= v0.17)
