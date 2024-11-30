@@ -15,6 +15,8 @@
 
 (documentation "https://mbarbin.github.io/dune-rpc-eio/")
 
+(implicit_transitive_deps false)
+
 (package
  (name dune-rpc-eio)
  (synopsis "Communicate with dune using rpc and Eio")
