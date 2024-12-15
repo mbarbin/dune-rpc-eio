@@ -11,7 +11,17 @@
   Base
   -open
   Cmdlang)
- (libraries base cmdlang dune-rpc-eio eio eio_main pp-log.cli pp-log.err)
+ (libraries
+  base
+  cmdlang
+  csexp
+  dune-rpc
+  dune-rpc-eio
+  eio
+  eio_main
+  pp
+  pp-log.cli
+  pp-log.err)
  (lint
   (pps ppx_js_style -check-doc-comments))
  (preprocess
