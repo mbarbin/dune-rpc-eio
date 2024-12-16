@@ -50,6 +50,8 @@
    (>= 0.0.9))
   (cmdliner
    (>= 1.3.0))
+  (csexp
+   (>= 1.5.2))
   (dune-rpc
    (>= 3.16))
   (dune-rpc-eio
@@ -63,6 +65,8 @@
     :with-test
     (>= v0.17)
     (< v0.18)))
+  (pp
+   (>= 2.0.0))
   (pp-log
    (>= 0.0.8))
   (ppx_compare
