@@ -1,3 +1,4 @@
 (cram
+ (package dune-rpc-eio-example)
  (applies_to :whole_subtree)
  (deps %{bin:dune} ../bin/main.exe))
