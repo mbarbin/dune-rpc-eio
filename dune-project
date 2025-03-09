@@ -46,8 +46,6 @@
     (< v0.18)))
   (cmdlang
    (>= 0.0.9))
-  (cmdlang-cmdliner-runner
-   (>= 0.0.8))
   (cmdlang-to-cmdliner
    (>= 0.0.9))
   (cmdliner
@@ -69,8 +67,8 @@
     (< v0.18)))
   (pp
    (>= 2.0.0))
-  (pp-log
-   (>= 0.0.8))
+  (pplumbing
+   (>= 0.0.9))
   (ppx_compare
    (and
     (>= v0.17)
