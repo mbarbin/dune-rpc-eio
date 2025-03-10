@@ -46,10 +46,6 @@
     (< v0.18)))
   (cmdlang
    (>= 0.0.9))
-  (cmdlang-to-cmdliner
-   (>= 0.0.9))
-  (cmdliner
-   (>= 1.3.0))
   (csexp
    (>= 1.5.2))
   (dune-rpc
