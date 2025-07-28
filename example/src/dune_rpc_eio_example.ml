@@ -1,11 +1,9 @@
 let stop_cmd =
   Command.make
-    ~summary:"connect to a dune-rpc instance and instruct it to stop"
+    ~summary:"Connect to a dune-rpc instance and instruct it to stop."
     ~readme:(fun () ->
-      {|
-This commands will connect to the dune server, perform several RPC calls
-to it before instructing the server (over RPC) to shutdown.
-|})
+      "This commands will connect to the dune server, perform several RPC calls to it \
+       before instructing the server (over RPC) to shutdown.")
     (let%map_open.Command () = Log_cli.set_config ()
      and build_dir =
        Arg.named_with_default
@@ -13,9 +11,7 @@ to it before instructing the server (over RPC) to shutdown.
          Param.string
          ~default:"_build"
          ~docv:"PATH"
-         ~doc:
-           "path to the build directory of the running `dune -w` instance. Default \
-            ./_build"
+         ~doc:"Path to the build directory of the running `dune -w` instance."
      in
      Eio_main.run
      @@ fun env ->
@@ -91,17 +87,13 @@ to it before instructing the server (over RPC) to shutdown.
 
 let main =
   Command.group
-    ~summary:"connect to a dune-rpc instance and perform some RPC calls"
+    ~summary:"Connect to a dune-rpc instance and perform some RPC calls."
     ~readme:(fun () ->
-      {|
-This example executable offers commands to connect to the RPC server
-started when Dune is run watch mode.
-
-To use this program, start Dune in watch mode:
-
-```
-$ dune build --watch
-```
-|})
+      "This example executable offers commands to connect to the RPC server\n\
+       started when Dune is run watch mode.\n\n\
+       To use this program, start Dune in watch mode:\n\n\
+       ```\n\
+       $ dune build --watch\n\
+       ```")
     [ "stop", stop_cmd ]
 ;;
