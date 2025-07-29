@@ -4,8 +4,9 @@ let stop_cmd =
     ~readme:(fun () ->
       "This commands will connect to the dune server, perform several RPC calls to it \
        before instructing the server (over RPC) to shutdown.")
-    (let%map_open.Command () = Log_cli.set_config ()
-     and build_dir =
+    (let open Command.Std in
+     let+ () = Log_cli.set_config ()
+     and+ build_dir =
        Arg.named_with_default
          [ "build-dir" ]
          Param.string
