@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- Fix warning 34 and build with OCaml 5.4.
+
 ### Removed
 
 ## 0.0.7 (2024-09-08)
