@@ -1,3 +1,9 @@
+(*********************************************************************************)
+(*  dune-rpc-eio - Communicate with dune using rpc and Eio                       *)
+(*  SPDX-FileCopyrightText: 2023-2025 Mathieu Barbin <mathieu.barbin@gmail.com>  *)
+(*  SPDX-License-Identifier: MIT                                                 *)
+(*********************************************************************************)
+
 module V1 = struct
   type eio_state =
     { fs : Eio.Fs.dir_ty Eio.Path.t

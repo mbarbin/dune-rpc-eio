@@ -1,3 +1,9 @@
+(*********************************************************************************)
+(*  dune-rpc-eio - Communicate with dune using rpc and Eio                       *)
+(*  SPDX-FileCopyrightText: 2023-2025 Mathieu Barbin <mathieu.barbin@gmail.com>  *)
+(*  SPDX-License-Identifier: MIT                                                 *)
+(*********************************************************************************)
+
 let stop_cmd =
   Command.make
     ~summary:"Connect to a dune-rpc instance and instruct it to stop."
