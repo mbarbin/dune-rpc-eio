@@ -38,10 +38,10 @@ module V1 : sig
         (* You can now carry on and use [Dune_rpc_eio.V1.Client]. *)
         ()
       ]} *)
-  val initialize : env:< fs : (_ Eio.Path.t as 'a) ; .. > -> sw:Eio.Switch.t -> unit
+  val initialize : env:< fs : _ Eio.Path.t ; .. > -> sw:Eio.Switch.t -> unit
 
   val connect_chan
-    :  env:< net : (_ Eio.Net.t as 'a) ; .. >
+    :  env:< net : _ Eio.Net.t ; .. >
     -> sw:Eio.Switch.t
     -> Dune_rpc.V1.Where.t
     -> chan
