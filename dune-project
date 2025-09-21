@@ -44,6 +44,8 @@
    (>= v0.17))
   (cmdlang
    (>= 0.0.9))
+  (cmdlang-cmdliner-err-runner
+   (>= 0.0.16))
   (csexp
    (>= 1.5.2))
   (dune-rpc
@@ -60,8 +62,10 @@
     (>= v0.17)))
   (pp
    (>= 2.0.0))
-  (pplumbing
-   (>= 0.0.14))
+  (pplumbing-err
+   (>= 0.0.16))
+  (pplumbing-log-cli
+   (>= 0.0.16))
   (ppx_compare
    (>= v0.17))
   (ppx_enumerate
