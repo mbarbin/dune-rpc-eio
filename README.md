@@ -1,5 +1,9 @@
 # dune-rpc-eio
 
+:warning: This repository is now a public archive. I have stopped developing the project and will not be maintaining it forward.
+
+---
+
 [![CI Status](https://github.com/mbarbin/dune-rpc-eio/workflows/ci/badge.svg)](https://github.com/mbarbin/dune-rpc-eio/actions/workflows/ci.yml)
 
 Communicate with `dune` using
